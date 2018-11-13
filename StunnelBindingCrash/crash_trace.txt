@@ -1,0 +1,64 @@
+2018-11-13 13:31:55.575 StunnelBindingCrash[3870:138994] 
+Unhandled Exception:
+System.NullReferenceException: Object reference not set to an instance of an object
+  at ObjCRuntime.Class.FindType (System.IntPtr class, System.Boolean& is_custom_type) [0x00075] in /Library/Frameworks/Xamarin.iOS.framework/Versions/12.1.0.15/src/Xamarin.iOS/ObjCRuntime/Class.cs:309 
+  at ObjCRuntime.Class.LookupClass (System.IntPtr klass, System.Boolean throw_on_error) [0x00002] in /Library/Frameworks/Xamarin.iOS.framework/Versions/12.1.0.15/src/Xamarin.iOS/ObjCRuntime/Class.cs:187 
+  at ObjCRuntime.Class.Lookup (System.IntPtr klass) [0x00000] in /Library/Frameworks/Xamarin.iOS.framework/Versions/12.1.0.15/src/Xamarin.iOS/ObjCRuntime/Class.cs:173 
+  at ObjCRuntime.Runtime.GetNSObject[T] (System.IntPtr ptr) [0x0003b] in <3dd904f9e3f64b43ae39970fe24f5cc3>:0 
+  at Foundation.NSRunLoop.get_Main () [0x00000] in /Library/Frameworks/Xamarin.iOS.framework/Versions/12.1.0.15/src/Xamarin.iOS/Foundation/NSRunLoop.g.cs:287 
+  at UIKit.UIKitSynchronizationContext.Post (System.Threading.SendOrPostCallback d, System.Object state) [0x00000] in /Library/Frameworks/Xamarin.iOS.framework/Versions/12.1.0.15/src/Xamarin.iOS/UIKit/UIKitSynchronizationContext.cs:24 
+  at System.Threading.Tasks.SynchronizationContextAwaitTaskContinuation.PostAction (System.Object state) [0x00007] in /Library/Frameworks/Xamarin.iOS.framework/Versions/12.1.0.15/src/Xamarin.iOS/mcs/class/referencesource/mscorlib/system/threading/Tasks/TaskContinuation.cs:452 
+  at System.Threading.Tasks.AwaitTaskContinuation.RunCallback (System.Threading.ContextCallback callback, System.Object state, System.Threading.Tasks.Task& currentTask) [0x00011] in /Library/Frameworks/Xamarin.iOS.framework/Versions/12.1.0.15/src/Xamarin.iOS/mcs/class/referencesource/mscorlib/system/threading/Tasks/TaskContinuation.cs:772 
+--- End of stack trace from previous location where exception was thrown ---
+  at System.Threading.Tasks.AwaitTaskContinuation+<>c.<ThrowAsyncIfNecessary>b__17_0 (System.Object s) [0x00000] in /Library/Frameworks/Xamarin.iOS.framework/Versions/12.1.0.15/src/Xamarin.iOS/mcs/class/referencesource/mscorlib/system/threading/Tasks/TaskContinuation.cs:871 
+  at System.Threading.QueueUserWorkItemCallback.WaitCallback_Context (System.Object state) [0x0000d] in /Library/Frameworks/Xamarin.iOS.framework/Versions/12.1.0.15/src/Xamarin.iOS/mcs/class/referencesource/mscorlib/system/threading/threadpool.cs:1308 
+  at System.Threading.ExecutionContext.RunInternal (System.Threading.ExecutionContext executionContext, System.Threading.ContextCallback callback, System.Object state, System.Boolean preserveSyncCtx) [0x00071] in /Library/Frameworks/Xamarin.iOS.framework/Versions/12.1.0.15/src/Xamarin.iOS/mcs/class/referencesource/mscorlib/system/threading/executioncontext.cs:957 
+  at System.Threading.ExecutionContext.Run (System.Threading.ExecutionContext executionContext, System.Threading.ContextCallback callback, System.Object state, System.Boolean preserveSyncCtx) [0x00000] in /Library/Frameworks/Xamarin.iOS.framework/Versions/12.1.0.15/src/Xamarin.iOS/mcs/class/referencesource/mscorlib/system/threading/executioncontext.cs:904 
+  at System.Threading.QueueUserWorkItemCallback.System.Threading.IThreadPoolWorkItem.ExecuteWorkItem () [0x00021] in /Library/Frameworks/Xamarin.iOS.framework/Versions/12.1.0.15/src/Xamarin.iOS/mcs/class/referencesource/mscorlib/system/threading/threadpool.cs:1285 
+  at System.Threading.ThreadPoolWorkQueue.Dispatch () [0x00074] in /Library/Frameworks/Xamarin.iOS.framework/Versions/12.1.0.15/src/Xamarin.iOS/mcs/class/referencesource/mscorlib/system/threading/threadpool.cs:858 
+  at ObjCRuntime.Runtime.ThreadPoolDispatcher (System.Func`1[TResult] callback) [0x00006] in /Library/Frameworks/Xamarin.iOS.framework/Versions/12.1.0.15/src/Xamarin.iOS/ObjCRuntime/Runtime.cs:280 
+  at System.Threading._ThreadPoolWaitCallback.PerformWaitCallback () [0x00009] in /Library/Frameworks/Xamarin.iOS.framework/Versions/12.1.0.15/src/Xamarin.iOS/mcs/class/referencesource/mscorlib/system/threading/threadpool.cs:1210 
+2018-11-13 13:31:55.577 StunnelBindingCrash[3870:138994] Unhandled managed exception:
+Object reference not set to an instance of an object (System.NullReferenceException)
+  at ObjCRuntime.Class.FindType (System.IntPtr class, System.Boolean& is_custom_type) [0x00075] in /Library/Frameworks/Xamarin.iOS.framework/Versions/12.1.0.15/src/Xamarin.iOS/ObjCRuntime/Class.cs:309 
+  at ObjCRuntime.Class.LookupClass (System.IntPtr klass, System.Boolean throw_on_error) [0x00002] in /Library/Frameworks/Xamarin.iOS.framework/Versions/12.1.0.15/src/Xamarin.iOS/ObjCRuntime/Class.cs:187 
+  at ObjCRuntime.Class.Lookup (System.IntPtr klass) [0x00000] in /Library/Frameworks/Xamarin.iOS.framework/Versions/12.1.0.15/src/Xamarin.iOS/ObjCRuntime/Class.cs:173 
+  at ObjCRuntime.Runtime.GetNSObject[T] (System.IntPtr ptr) [0x0003b] in <3dd904f9e3f64b43ae39970fe24f5cc3>:0 
+  at Foundation.NSRunLoop.get_Main () [0x00000] in /Library/Frameworks/Xamarin.iOS.framework/Versions/12.1.0.15/src/Xamarin.iOS/Foundation/NSRunLoop.g.cs:287 
+  at UIKit.UIKitSynchronizationContext.Post (System.Threading.SendOrPostCallback d, System.Object state) [0x00000] in /Library/Frameworks/Xamarin.iOS.framework/Versions/12.1.0.15/src/Xamarin.iOS/UIKit/UIKitSynchronizationContext.cs:24 
+  at System.Threading.Tasks.SynchronizationContextAwaitTaskContinuation.PostAction (System.Object state) [0x00007] in /Library/Frameworks/Xamarin.iOS.framework/Versions/12.1.0.15/src/Xamarin.iOS/mcs/class/referencesource/mscorlib/system/threading/Tasks/TaskContinuation.cs:452 
+  at System.Threading.Tasks.AwaitTaskContinuation.RunCallback (System.Threading.ContextCallback callback, System.Object state, System.Threading.Tasks.Task& currentTask) [0x00011] in /Library/Frameworks/Xamarin.iOS.framework/Versions/12.1.0.15/src/Xamarin.iOS/mcs/class/referencesource/mscorlib/system/threading/Tasks/TaskContinuation.cs:772 
+--- End of stack trace from previous location where exception was thrown ---
+  at System.Threading.Tasks.AwaitTaskContinuation+<>c.<ThrowAsyncIfNecessary>b__17_0 (System.Object s) [0x00000] in /Library/Frameworks/Xamarin.iOS.framework/Versions/12.1.0.15/src/Xamarin.iOS/mcs/class/referencesource/mscorlib/system/threading/Tasks/TaskContinuation.cs:871 
+  at System.Threading.QueueUserWorkItemCallback.WaitCallback_Context (System.Object state) [0x0000d] in /Library/Frameworks/Xamarin.iOS.framework/Versions/12.1.0.15/src/Xamarin.iOS/mcs/class/referencesource/mscorlib/system/threading/threadpool.cs:1308 
+  at System.Threading.ExecutionContext.RunInternal (System.Threading.ExecutionContext executionContext, System.Threading.ContextCallback callback, System.Object state, System.Boolean preserveSyncCtx) [0x00071] in /Library/Frameworks/Xamarin.iOS.framework/Versions/12.1.0.15/src/Xamarin.iOS/mcs/class/referencesource/mscorlib/system/threading/executioncontext.cs:957 
+  at System.Threading.ExecutionContext.Run (System.Threading.ExecutionContext executionContext, System.Threading.ContextCallback callback, System.Object state, System.Boolean preserveSyncCtx) [0x00000] in /Library/Frameworks/Xamarin.iOS.framework/Versions/12.1.0.15/src/Xamarin.iOS/mcs/class/referencesource/mscorlib/system/threading/executioncontext.cs:904 
+  at System.Threading.QueueUserWorkItemCallback.System.Threading.IThreadPoolWorkItem.ExecuteWorkItem () [0x00021] in /Library/Frameworks/Xamarin.iOS.framework/Versions/12.1.0.15/src/Xamarin.iOS/mcs/class/referencesource/mscorlib/system/threading/threadpool.cs:1285 
+  at System.Threading.ThreadPoolWorkQueue.Dispatch () [0x00074] in /Library/Frameworks/Xamarin.iOS.framework/Versions/12.1.0.15/src/Xamarin.iOS/mcs/class/referencesource/mscorlib/system/threading/threadpool.cs:858 
+  at ObjCRuntime.Runtime.ThreadPoolDispatcher (System.Func`1[TResult] callback) [0x00006] in /Library/Frameworks/Xamarin.iOS.framework/Versions/12.1.0.15/src/Xamarin.iOS/ObjCRuntime/Runtime.cs:280 
+  at System.Threading._ThreadPoolWaitCallback.PerformWaitCallback () [0x00009] in /Library/Frameworks/Xamarin.iOS.framework/Versions/12.1.0.15/src/Xamarin.iOS/mcs/class/referencesource/mscorlib/system/threading/threadpool.cs:1210 
+2018-11-13 13:31:55.577 StunnelBindingCrash[3870:138994] critical: Stacktrace:
+
+2018-11-13 13:31:55.577 StunnelBindingCrash[3870:138994] critical: 
+Native stacktrace:
+
+2018-11-13 13:31:55.618 StunnelBindingCrash[3870:138994] critical: 	0   StunnelBindingCrash                 0x0000000101005868 mono_handle_native_crash + 224
+2018-11-13 13:31:55.619 StunnelBindingCrash[3870:138994] critical: 	1   libsystem_platform.dylib            0x00000001e01f7a20 <redacted> + 56
+2018-11-13 13:31:55.619 StunnelBindingCrash[3870:138994] critical: 	2   libsystem_pthread.dylib             0x00000001e01fd070 <redacted> + 380
+2018-11-13 13:31:55.619 StunnelBindingCrash[3870:138994] critical: 	3   libsystem_c.dylib                   0x00000001e00d9d78 abort + 140
+2018-11-13 13:31:55.620 StunnelBindingCrash[3870:138994] critical: 	4   StunnelBindingCrash                 0x00000001011556f4 xamarin_printf + 0
+2018-11-13 13:31:55.623 StunnelBindingCrash[3870:138994] critical: 	5   StunnelBindingCrash                 0x0000000101050f90 mono_invoke_unhandled_exception_hook + 136
+2018-11-13 13:31:55.623 StunnelBindingCrash[3870:138994] critical: 	6   StunnelBindingCrash                 0x00000001010d2cd0 mono_thread_internal_unhandled_exception + 144
+2018-11-13 13:31:55.623 StunnelBindingCrash[3870:138994] critical: 	7   StunnelBindingCrash                 0x00000001010cb7b4 worker_callback + 1216
+2018-11-13 13:31:55.623 StunnelBindingCrash[3870:138994] critical: 	8   StunnelBindingCrash                 0x00000001010c9570 worker_thread + 1376
+2018-11-13 13:31:55.623 StunnelBindingCrash[3870:138994] critical: 	9   StunnelBindingCrash                 0x00000001010d368c start_wrapper_internal + 344
+2018-11-13 13:31:55.624 StunnelBindingCrash[3870:138994] critical: 	10  StunnelBindingCrash                 0x00000001010d3510 start_wrapper + 88
+2018-11-13 13:31:55.624 StunnelBindingCrash[3870:138994] critical: 	11  libsystem_pthread.dylib             0x00000001e02062ac <redacted> + 128
+2018-11-13 13:31:55.624 StunnelBindingCrash[3870:138994] critical: 	12  libsystem_pthread.dylib             0x00000001e020620c _pthread_start + 48
+2018-11-13 13:31:55.624 StunnelBindingCrash[3870:138994] critical: 	13  libsystem_pthread.dylib             0x00000001e0209cf4 thread_start + 4
+2018-11-13 13:31:55.625 StunnelBindingCrash[3870:138994] critical: 
+=================================================================
+Got a SIGABRT while executing native code. This usually indicates
+a fatal error in the mono runtime or one of the native libraries 
+used by your application.
+=================================================================
