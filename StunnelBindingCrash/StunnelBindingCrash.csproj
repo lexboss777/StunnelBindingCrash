@@ -68,7 +68,6 @@
     <DeviceSpecificBuild>true</DeviceSpecificBuild>
     <MtouchDebug>true</MtouchDebug>
     <MtouchNoSymbolStrip>true</MtouchNoSymbolStrip>
-    <MtouchFastDev>true</MtouchFastDev>
     <MtouchFloat32>true</MtouchFloat32>
     <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <IOSDebuggerPort>45044</IOSDebuggerPort>
@@ -76,6 +75,7 @@
     <MtouchArch>ARM64</MtouchArch>
     <MtouchHttpClientHandler>NSUrlSessionHandler</MtouchHttpClientHandler>
     <PlatformTarget>x86</PlatformTarget>
+    <MtouchExtraArgs>-v --nosymbolstrip -cxx -gcc_flags "-stdlib=libc++ -force_load ${ProjectDir}/lib/libStunnel.a -force_load ${ProjectDir}/lib/libSpoof.a"</MtouchExtraArgs>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -89,6 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="lib\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -97,6 +98,8 @@
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="Entitlements.plist" />
+    <None Include="lib\libspoof.a" />
+    <None Include="lib\libstunnel.a" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Main.cs" />

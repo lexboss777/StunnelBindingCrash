@@ -1,10 +1,18 @@
-﻿using Foundation;
+﻿using System;
+using System.IO;
+using System.Runtime.InteropServices;
+using System.Threading.Tasks;
+using Foundation;
 using UIKit;
 
 namespace StunnelBindingCrash
 {
-	// The UIApplicationDelegate for the application. This class is responsible for launching the
-	// User Interface of the application, as well as listening (and optionally responding) to application events from iOS.
+	public static class Stunnel
+	{
+		[DllImport("__Internal", CallingConvention = CallingConvention.Cdecl)]
+		public static extern int stunnel_main(int argc, [In, Out] string[] argv);
+	}
+
 	[Register("AppDelegate")]
 	public class AppDelegate : UIApplicationDelegate
 	{
@@ -21,38 +29,48 @@ namespace StunnelBindingCrash
 			// Override point for customization after application launch.
 			// If not required for your application you can safely delete this method
 
+			StartTesting();
+
 			return true;
 		}
 
-		public override void OnResignActivation(UIApplication application)
+		async Task StartTesting()
 		{
-			// Invoked when the application is about to move from active to inactive state.
-			// This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) 
-			// or when the user quits the application and it begins the transition to the background state.
-			// Games should use this method to pause the game.
+			Task.Factory.StartNew(StunnelThread);
+
+			await Task.Delay(1000);
+
+			//now it will crash
+			Console.WriteLine(new NSString("If you can read this from Application Output MtouchFastDev is disabled."));
 		}
 
-		public override void DidEnterBackground(UIApplication application)
+		public static void StunnelThread()
 		{
-			// Use this method to release shared resources, save user data, invalidate timers and store the application state.
-			// If your application supports background exection this method is called instead of WillTerminate when the user quits.
+			var configFileName = CreateStunnelConfig();
+			Stunnel.stunnel_main(2, new string[] { "stunnel", configFileName });
 		}
 
-		public override void WillEnterForeground(UIApplication application)
+		static string CreateStunnelConfig()
 		{
-			// Called as part of the transiton from background to active state.
-			// Here you can undo many of the changes made on entering the background.
-		}
+			var tmpDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Personal), "tmp/");
 
-		public override void OnActivated(UIApplication application)
-		{
-			// Restart any tasks that were paused (or not yet started) while the application was inactive. 
-			// If the application was previously in the background, optionally refresh the user interface.
-		}
+			var confPath = Path.Combine(tmpDir, "stunnel.conf");
+			var pidFile = Path.Combine(tmpDir, "stunnel.pid");
+			var logFile = Path.Combine(tmpDir, "stunnel.log");
 
-		public override void WillTerminate(UIApplication application)
-		{
-			// Called when the application is about to terminate. Save data, if needed. See also DidEnterBackground.
+			if (File.Exists(logFile))
+				Console.WriteLine(File.ReadAllText(logFile));
+
+			Directory.CreateDirectory(tmpDir);
+			File.Delete(pidFile);
+
+			using (var fs = File.Create(logFile));
+
+			string content = $"pid = {pidFile}\noutput = {logFile}\nsocket = a:SO_REUSEADDR=1\nforeground = yes\ndebug = 7\nsocket = l:TCP_NODELAY=1\nsocket = r:TCP_NODELAY=1\n[test]\nclient = yes\naccept = 127.0.0.1:8888\nconnect = www.cryptopro.ru:5555";
+
+			File.WriteAllText(confPath, content);
+
+			return confPath;
 		}
 	}
 }
